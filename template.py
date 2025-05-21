@@ -1,5 +1,4 @@
 import os
-
 structure = {
     "backend": [
         "app.py",
