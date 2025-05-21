@@ -1,4 +1,4 @@
-## Tech Stack
+## Current Tech Stack
 - **Backend**: Flask  
 - **Database**: SQLite  
 - **Scheduler**: APScheduler  
