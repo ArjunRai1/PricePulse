@@ -3,7 +3,9 @@ structure = {
     "backend": [
         "app.py",
         "scheduler.py",
-        "models.py"
+        "models.py",
+        "scraper.py",
+        "db.py"
     ]
 }
 
