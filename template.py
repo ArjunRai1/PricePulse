@@ -4,12 +4,7 @@ structure = {
         "app.py",
         "scheduler.py",
         "models.py"
-    ],
-    "frontend": {
-        "": ["package.json"],
-        "src": ["App.jsx"],
-        "public": ["index.html"]
-    }
+    ]
 }
 
 def create_dirs_and_files(base_path, struct):
