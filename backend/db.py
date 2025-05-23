@@ -13,6 +13,11 @@ def init_db():
         price REAL NOT NULL,
         timestamp TEXT NOT NULL
     );""")
+    c.execute("""
+    CREATE TABLE IF NOT EXISTS tracked_urls(
+        id   INTEGER PRIMARY KEY AUTOINCREMENT,
+        url  TEXT NOT NULL UNIQUE
+    );""")
     conn.commit()
     conn.close()
 
