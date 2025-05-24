@@ -70,7 +70,6 @@ def get_history():
 
 if __name__ == "__main__":
     init_db()
-
     scheduler = BackgroundScheduler()
     scheduler.add_job(scrape_all, 'cron', minute=0)
     scheduler.start()
