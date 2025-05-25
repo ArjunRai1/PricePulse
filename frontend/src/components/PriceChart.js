@@ -26,9 +26,10 @@ export default function PriceChart({ history }) {
 
  
   const labels = history.map(pt => {
-    const d = new Date(pt.timestamp * 1000);
-    return d.toLocaleString();
-  });
+   const iso = pt.timestamp.replace(' ', 'T');
+   const d = new Date(iso);
+   return d.toLocaleString();
+ });
   const data = history.map(pt => pt.price);
 
   const chartData = {

@@ -5,7 +5,8 @@ export default function PricePreview({ history }) {
 
   
   const { name, price, timestamp } = history[history.length - 1];
-  const date = new Date(timestamp * 1000); 
+  const iso = timestamp.replace(' ', 'T');
+  const date = new Date(iso);
 
   return (
     <div style={{ marginBottom: '1rem' }}>

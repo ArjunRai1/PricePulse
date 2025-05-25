@@ -46,6 +46,14 @@ def add_url():
     except sqlite3.IntegrityError:
         pass
     conn.close()
+
+    try:
+        payload = asyncio.run(fetch_product_data(url.strip()))
+        ts = payload["timestamp"]
+        dt = datetime.datetime.fromtimestamp(ts).strftime("%Y-%m-%d %H:%M:%S")
+        save_price(url.strip(), payload["name"], payload["price"], dt)
+    except Exception as e:
+        print("Initial scrape failed:", e)
     return jsonify({"message": "Tracking added", "url": url}), 201
 
 @app.route("/api/history", methods=["GET"])
@@ -71,6 +79,6 @@ def get_history():
 if __name__ == "__main__":
     init_db()
     scheduler = BackgroundScheduler()
-    scheduler.add_job(scrape_all, 'cron', minute=0)
+    scheduler.add_job(scrape_all, 'interval', minutes=30, next_run_time=datetime.datetime.now())
     scheduler.start()
     app.run(debug=True)
