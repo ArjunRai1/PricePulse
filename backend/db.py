@@ -5,6 +5,7 @@ DB_PATH = "prices.db"
 def init_db():
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
+    #c.execute("PRAGMA journal_mode = WAL;")
     c.execute("""
     CREATE TABLE IF NOT EXISTS product_price(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -18,6 +19,7 @@ def init_db():
         id   INTEGER PRIMARY KEY AUTOINCREMENT,
         url  TEXT NOT NULL UNIQUE
     );""")
+   
     conn.commit()
     conn.close()
 

@@ -38,7 +38,7 @@ async def fetch_product_data(url: str) -> dict:
         }
 
 async def main():
-    url = "https://www.amazon.in/HP-Powered-16-1-inch-Backlit-s0089AX/dp/B0CNR7KRSC/?_encoding=UTF8&pd_rd_w=aCxHU&content-id=amzn1.sym.0e03aefb-8b93-49f8-beeb-6d21836a1b3d&pf_rd_p=0e03aefb-8b93-49f8-beeb-6d21836a1b3d&pf_rd_r=3FE3VFD5AWDVADBYG511&pd_rd_wg=5W8Zv&pd_rd_r=6489b737-7aea-4104-b524-3366513f2469&ref_=pd_hp_d_atf_dealz_cs&th=1"
+    url = ""
     url = url.strip()
     try:
         data = await fetch_product_data(url)
