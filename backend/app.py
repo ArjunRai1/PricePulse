@@ -7,7 +7,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from db import init_db, save_price, DB_PATH
 from flask_cors import CORS
 
-
+init_db()
 
 HEADERS = {
     "User-Agent": (
@@ -125,7 +125,6 @@ def get_history():
 
 
 if __name__ == "__main__":
-    init_db()
     scheduler = BackgroundScheduler()
     scheduler.add_job(scrape_all, 'interval', minutes=30, next_run_time=datetime.datetime.now())
     scheduler.start()
