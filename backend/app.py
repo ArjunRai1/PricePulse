@@ -45,6 +45,7 @@ def scrape_all():
 
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
+scrape_all()
 
 @app.route("/api/track", methods=["POST"])
 def add_url():
