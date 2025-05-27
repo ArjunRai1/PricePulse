@@ -8,3 +8,4 @@ lxml
 google-genai
 googlesearch-python
 python-dotenv
+gunicorn
