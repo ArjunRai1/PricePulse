@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import PricePreview from './components/PricePreview';
 import PriceChart from './components/PriceChart';
 import TrackForm from './components/TrackForm';
+import { API_BASE } from './config';
 import './App.css';
 
 function App() {
