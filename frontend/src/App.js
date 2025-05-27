@@ -23,7 +23,7 @@ function App() {
   }, []);
 
   async function fetchHistory(url) {
-    const res = await fetch(`/api/history?url=${encodeURIComponent(url)}`);
+    const res = await fetch(`${API_BASE}/api/history?url=${encodeURIComponent(url)}`);
     const data = await res.json();
     setHistory(data.history);
   }

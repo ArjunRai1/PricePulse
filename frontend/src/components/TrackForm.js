@@ -22,27 +22,27 @@ export default function TrackForm({ onTracked }) {
       });
       
       
-      const res = await fetch(`/api/history?url=${encodeURIComponent(url)}`);
+      const res = await fetch(`${API_BASE}/api/history?url=${encodeURIComponent(url)}`);
       const data = await res.json();
       onTracked(data.history, url);
 
       
-      if (email && targetPrice) {
-        const alertRes = await fetch('/api/alerts', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            url,
-            email,
-            target_price: parseFloat(targetPrice)
-          }),
-        });
+      // if (email && targetPrice) {
+      //   const alertRes = await fetch('/api/alerts', {
+      //     method: 'POST',
+      //     headers: { 'Content-Type': 'application/json' },
+      //     body: JSON.stringify({
+      //       url,
+      //       email,
+      //       target_price: parseFloat(targetPrice)
+      //     }),
+      //   });
         
-        if (!alertRes.ok) {
-          const alertData = await alertRes.json();
-          throw new Error(alertData.error || 'Failed to set price alert');
-        }
-      }
+      //   if (!alertRes.ok) {
+      //     const alertData = await alertRes.json();
+      //     throw new Error(alertData.error || 'Failed to set price alert');
+      //   }
+      // }
     } catch (err) {
       setError(err.message);
     } finally {
