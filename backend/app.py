@@ -124,9 +124,7 @@ def get_history():
     return jsonify({"url": url, "history": history})
 
 
-
-if __name__ == "__main__":
-    scheduler = BackgroundScheduler()
-    scheduler.add_job(scrape_all, 'interval', minutes=30, next_run_time=datetime.datetime.now())
-    scheduler.start()
-    app.run(debug=True)
+scheduler = BackgroundScheduler()
+scheduler.add_job(scrape_all, 'interval', minutes=30, next_run_time=datetime.datetime.now())
+scheduler.start()
+app.run(debug=True)
