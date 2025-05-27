@@ -1,0 +1,10 @@
+flask
+apscheduler
+requests
+beautifulsoup4
+playwright
+flask-cors
+lxml
+google-genai
+googlesearch-python
+python-dotenv
