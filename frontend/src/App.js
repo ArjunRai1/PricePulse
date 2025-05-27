@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import PricePreview from './components/PricePreview';
 import PriceChart from './components/PriceChart';
 import TrackForm from './components/TrackForm';
-
+import './App.css';
 
 function App() {
   const [history, setHistory] = useState([]);
@@ -23,24 +23,39 @@ function App() {
   }, []);
 
   async function fetchHistory(url) {
-  const res = await fetch(`/api/history?url=${encodeURIComponent(url)}`);
-  const data = await res.json();
-  setHistory(data.history);
-}
+    const res = await fetch(`/api/history?url=${encodeURIComponent(url)}`);
+    const data = await res.json();
+    setHistory(data.history);
+  }
 
   return (
-    <div style={{ maxWidth: 800, margin: '2rem auto', padding: '0 1rem' }}>
-      <h1>PricePulse Dashboard</h1>
-      <TrackForm onTracked={handleTracked} />
+    <div className="app-container">
+      <header className="app-header">
+        <div className="header-content">
+          <h1>PricePulse</h1>
+          <p className="subtitle">Track Amazon prices effortlessly</p>
+        </div>
+      </header>
+      
+      <main className="main-content">
+        <div className="track-section">
+          <TrackForm onTracked={handleTracked} />
+        </div>
 
-      {currentUrl && (
-        <>
-          <PricePreview history={history} />
-          <PriceChart history={history} />
-        </>
-      )}
+        {currentUrl && (
+          <div className="data-section">
+            <PricePreview history={history} />
+            <div className="chart-container">
+              <PriceChart history={history} />
+            </div>
+          </div>
+        )}
+      </main>
+      
+      <footer className="app-footer">
+        <p>© 2024 PricePulse. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
-
 export default App;
