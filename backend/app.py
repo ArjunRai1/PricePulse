@@ -5,7 +5,7 @@ import sqlite3
 from scraper import fetch_product_data
 from apscheduler.schedulers.background import BackgroundScheduler
 from db import init_db, save_price, DB_PATH
-
+from flask_cors import CORS
 
 
 
@@ -44,6 +44,7 @@ def scrape_all():
     
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/api/track", methods=["POST"])
 def add_url():
