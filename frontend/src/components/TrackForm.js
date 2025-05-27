@@ -23,7 +23,8 @@ export default function TrackForm({ onTracked }) {
       
       
       const res = await fetch(`${API_BASE}/api/history?url=${encodeURIComponent(url)}`);
-      console.log("▶︎ Fetching from:", res);
+      const endpoint = `${API_BASE}/api/history?url=${encodeURIComponent(url)}`;
+      console.log("▶︎ Fetching from:", endpoint);
       const data = await res.json();
       onTracked(data.history, url);
 
