@@ -123,8 +123,12 @@ def get_history():
     ]
     return jsonify({"url": url, "history": history})
 
+from threading import Thread
+thread = Thread(target=scrape_all, daemon=True)
+thread.start()
 
-scheduler = BackgroundScheduler()
-scheduler.add_job(scrape_all, 'interval', minutes=30, next_run_time=datetime.datetime.now())
-scheduler.start()
-app.run(debug=True)
+if __name__ == "__main__":
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(scrape_all, 'interval', minutes=30, next_run_time=datetime.datetime.now())
+    scheduler.start()
+    app.run(debug=True)
