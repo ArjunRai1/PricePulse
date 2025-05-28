@@ -19,26 +19,26 @@ Under the hood, PricePulse leverages a lightweight Flask API, Playwright-driven 
 ---
 
 ## 📁 Repository Structure
-/
-├── backend/
-│ ├── app.py # Flask application: API endpoints, CORS, DB init & scheduler
-│ ├── db.py # SQLite helpers: init_db(), save_price(), fetch_history()
-│ ├── scraper.py # Async Playwright scraper + scrape_all() loop for batch jobs
-│ ├── requirements.txt # Python dependencies (Flask, flask-cors, playwright, etc.)
-│ └── prices.db # SQLite database (auto-created on first run)
-│
-├── frontend/
-│ ├── public/ # Static assets (index.html, icons, etc.)
-│ ├── src/
-│ │ ├── config.js # Reads REACT_APP_API_URL from environment
-│ │ ├── App.js # Core UI component, form & table rendering
-│ │ ├── services/ # API wrappers for /api/track and /api/history
-│ │ └── components/ # Reusable UI pieces (Table, Form, Loader)
-│ ├── package.json # Build & start scripts, proxy for local dev
-│ └── .env.example # Template for REACT_APP_API_URL
-│
-├── .gitignore
-└── README.md
+- /
+- ├── backend/
+- │ ├── app.py # Flask application: API endpoints, CORS, DB init & scheduler
+- │ ├── db.py # SQLite helpers: init_db(), save_price(), fetch_history()
+- │ ├── scraper.py # Async Playwright scraper + scrape_all() loop for batch jobs
+- │ ├── requirements.txt # Python dependencies (Flask, flask-cors, playwright, etc.)
+- │ └── prices.db # SQLite database (auto-created on first run)
+- │
+- ├── frontend/
+- │ ├── public/ # Static assets (index.html, icons, etc.)
+- │ ├── src/
+- │ │ ├── config.js # Reads REACT_APP_API_URL from environment
+- │ │ ├── App.js # Core UI component, form & table rendering
+- │ │ ├── services/ # API wrappers for /api/track and /api/history
+- │ │ └── components/ # Reusable UI pieces (Table, Form, Loader)
+- │ ├── package.json # Build & start scripts, proxy for local dev
+- │ └── .env.example # Template for REACT_APP_API_URL
+- │
+- ├── .gitignore
+- └── README.md
 
 ## 📋 Detailed Description
 
